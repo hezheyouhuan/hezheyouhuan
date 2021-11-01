@@ -1,0 +1,57 @@
+﻿<Window x:Class="SerisTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SerisTest"
+        mc:Ignorable="d"
+		WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="587.004" Width="525.646" Loaded="Window_Loaded">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<StackPanel  >
+
+			<DockPanel>
+				<ComboBox Name="comboBox_botelv" Width="100" />
+				<TextBlock Text="波特率"/>
+				<ComboBox Name="comboBox_HHF" Width="100"/>
+				<TextBlock Text="结束字符"/>
+			</DockPanel>
+			<DockPanel>
+				<ComboBox Name="comboBox_portSelect" Width="300" />
+
+				<Button Content=" 打开串口" Name="dkck" Click="dkck_Click"/>
+
+
+			</DockPanel>
+			<DockPanel>
+				<TextBox Name="textBox_dataToSend" Width="300" />
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<Button Content="发送数据" Name="buttonTX" Click="buttonTX_Click" />
+					<Button Grid.Column="1" x:Name="FSSPP" Content="发送SPP命令" Click="FSSPP_Click"/>
+				</Grid>
+				
+			</DockPanel>
+			<DockPanel>
+				<Button Content="关闭串口" Name="buttonClose" Click="buttonClose_Click" />
+			</DockPanel>
+
+		</StackPanel>
+		<ScrollViewer Grid.Row="1" >
+			<StackPanel>
+				<TextBox Name="textBox_dataReceived" TextWrapping ="Wrap"  />
+			</StackPanel>
+
+		</ScrollViewer>
+
+	</Grid>
+
+</Window>
